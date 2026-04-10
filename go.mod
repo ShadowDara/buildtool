@@ -1,5 +1,5 @@
 module buildtool
 
-go 1.25.1
+go 1.18
 
-require github.com/shadowdara/finder v0.3.8 // indirect
+require github.com/shadowdara/finder v0.3.11 // indirect
