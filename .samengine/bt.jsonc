@@ -1,5 +1,6 @@
 {
     "projectscripts": {
-        "test": "hallo"
+        "test": "hallo",
+        "lol": "bun"
     }
 }

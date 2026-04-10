@@ -6,8 +6,16 @@ import (
 )
 
 func CompileScripts(cfg config.Config) {
-	// Make sure the Folder exists
-	err := os.MkdirAll(".samengine/bin", 0755)
+	path := ".samengine/bin"
+
+	// Ordner komplett löschen (falls vorhanden)
+	err := os.RemoveAll(path)
+	if err != nil {
+		panic(err)
+	}
+
+	// Ordner neu erstellen
+	err = os.MkdirAll(path, 0755)
 	if err != nil {
 		panic(err)
 	}
