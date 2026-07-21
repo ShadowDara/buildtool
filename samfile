@@ -12,3 +12,9 @@ run:
 
 r:
     TASK run
+
+install:
+    RUN go install ./cmd/bt
+
+i:
+    TASK install
