@@ -18,7 +18,18 @@ func ParseArgs() {
 	root.Bool("bin", false, "Add the script shortcuts to your terminal path", false)
 	root.Bool("compile", false, "Compile the Scripts from the Config File", false)
 
+	goinstall := argparser.NewCommand("goinstall", "Install a go programm with CGO", false)
+
+	root.AddSubcommand(goinstall)
+
 	cmd := root.Parse(os.Args[1:])
+
+	switch cmd.Name {
+	case "goinstall":
+		core.RunGoInstall()
+		return
+	}
+
 
 	// Add a Tag to a Git Repo
 	res := cmd.GetString("tag")
@@ -43,7 +54,8 @@ func ParseArgs() {
 
 	switch cmd {
 	default:
-		fmt.Println("Buildtool")
+		banner()
+		fmt.Println("Buildtool Version " + core.GetVersion() + " by Shadowdara")
 		cmd.PrintHelp()
 	}
 }

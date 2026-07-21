@@ -1,0 +1,14 @@
+build:
+    ENV CC="zig cc"
+    ENV CXX="zig c++"
+    SHELL go build -ldflags=-s ./cmd/bt
+
+b:
+    TASK build
+
+run:
+    TASK build
+    SHELL .\\bt.exe
+
+r:
+    TASK run
